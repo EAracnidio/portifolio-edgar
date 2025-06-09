@@ -42,6 +42,7 @@ body{
     border-radius: 30px;
     cursor: pointer;
     }
+
 h2.titulo{
     font-size: 38px;
     color: #fff;
@@ -71,7 +72,13 @@ header a{
     transition: .2s;
 }
 
-header a:hover{
+header nav .menu-desktop {
+    display: flex;
+    gap: 40px;
+}
+
+
+header nav .menu-desktop a:hover{
     color: #fff;
     transform: scale(1.05);
 }
@@ -80,15 +87,34 @@ header nav ul{
     list-style-type: none;
 }
 
-header nav ul li{
-    display: inline-block;
-    padding: 0 40px;
+header nav .menu-desktop ul {
+    display: flex;
+    gap: 40px;
 }
+
+header nav .menu-desktop ul li {
+    padding: 0;
+}
+
 
 .btn-contato button:hover, form .btn-enviar input:hover{
     box-shadow: 0px 0px 8px #0396eb ;
     transform: scale(1.05);
     transition: .2s;
+}
+
+/*Havia aqui o menu  mobile, mas foi removido para simplificação*/
+.menu-mobile{
+    display: none; /* Escondido por padrão */
+    background-color: #000;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 99999;
+    width: 70%;
+    overflow: hidden;
+    transition: .5s;
 }
 
 /*ESTILO DO TOPO DO SITE*/
@@ -232,7 +258,7 @@ section.portfolio .flex{
     width: 360px;
     height: 460px;
     background-position: 100% 0%;
-    transition: 5s;
+    transition: .5s;
     cursor: pointer;
     border-radius: 40px;
     position: relative;
@@ -345,4 +371,166 @@ footer .txt-footer{
     margin-top: 20px;
     color: #fff;
     font-size: 16px;
+}
+
+/*RESPONSIVO*/
+@media screen and (max-width: 999px) {
+    /*CLASSES GERAIS*/
+
+    .flex{
+        flex-direction: column-reverse;
+    }
+
+    h2.titulo{
+    font-size: 34px;
+    line-height: 30px;
+}
+
+ /*CABEÇALHO*/
+    .menu-desktop{
+        display: none;
+    }
+
+    .btn-contato{
+        display: none;
+    }
+
+/*MENU MOBILE*/
+.menu-mobile .btn-fechar{
+   padding: 20px 5%;
+}
+
+.menu-mobile .btn-fechar i{
+    color: #188CD0;
+    font-size: 30px;
+}
+
+.menu-mobile nav ul{
+    text-align: right;
+}
+.menu-mobile nav ul li a{
+    color: #fff;
+    font-size: 20px;
+    font-weight: 300;
+    padding: 20px 8%;
+    display: block;
+}
+
+.menu-mobile nav ul li a:hover{
+    background-color: #188CD0;
+    transition: .2s;
+}
+
+ .btn-abrir-menu i{
+    color: #188CD0;
+    font-size: 40px;
+}
+
+    .menu-mobile.abrir-menu {
+        display: block;
+    }
+    .menu-mobile.abrir-menu ~ .overlay-menu{
+    display: block; /* Exibe a sobreposição quando o menu está aberto */
+}
+
+.overlay-menu{
+    background-color: #000000a8;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 88888;
+    display: none; /* Escondido por padrão */
+}
+
+
+/*TOPO DO SITE*/
+section.topo-do-site .flex{
+    gap: 40px;
+}
+
+section.topo-do-site{
+    padding: 20px 8%;
+}
+
+.topo-do-site h1{
+    font-size: 38px;
+}
+
+.topo-do-site .img-topo-site img{
+    width: 100%;
+}
+
+/*ESPECIALIDADES*/
+section.especialidades{
+    margin-top: auto;
+    padding: 40% 8%;
+}
+
+.especialidades .flex{
+    flex-direction: column;
+    align-items: center;
+}
+
+  .especialidades-box i {
+    display: block;
+    text-align: center;
+    font-size: 40px;
+    margin: 0 auto 10px auto; /* centraliza horizontalmente */
+  }
+
+.especialidades-box h3{
+    text-align: center;
+}
+
+/*SOBRE*/
+section.sobre{
+    padding: 80px 8%;
+}
+.sobre .flex{
+    flex-direction: column;
+    align-items: center;
+}
+
+.sobre .txt-sobre h2{
+    font-size: 34px;
+    line-height: 35px;
+    text-align: center;
+}
+
+.btn-social{
+    text-align: center;
+}
+
+.img-sobre img{
+    width: 100%;
+}
+
+/*PORTFOLIO*/
+section.portfolio{
+    padding: 80px 8%;
+}
+
+.portfolio-box{
+    width: 100%;
+    max-width: 360px;
+    margin: 0 auto;
+}
+section.portfolio .flex{
+    gap:60px
+}
+
+/*RODAPE*/
+footer .flex{
+    flex-direction: column;
+    align-items: center;
+}
+
+.line-footer {
+  margin: 0 auto;
+  width: fit-content; /* ou uma largura fixa, ex: 300px */
+}
+
+
 }
