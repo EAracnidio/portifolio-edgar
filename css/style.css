@@ -59,7 +59,14 @@ header{
     padding: 40px 4%;
 }
 
-header > .interface{
+header .interface {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 4%;
+}
+
+
+header .interface{
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -77,13 +84,18 @@ header nav .menu-desktop {
     gap: 40px;
 }
 
-
 header nav .menu-desktop a:hover{
     color: #fff;
     transform: scale(1.05);
 }
 
 header nav ul{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 60px;
+    padding: 0;
+    margin: 0;
     list-style-type: none;
 }
 
@@ -405,18 +417,28 @@ footer .txt-footer{
     font-size: 30px;
 }
 
-.menu-mobile nav ul{
+.menu-mobile nav ul {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px 8%;
     text-align: right;
+    list-style: none;
+}
+
+.menu-mobile a {
+    color: #fff;
+    text-decoration: none;
 }
 .menu-mobile nav ul li a{
+    display: block;
     color: #fff;
     font-size: 20px;
     font-weight: 300;
-    padding: 20px 8%;
-    display: block;
+    
 }
 
-.menu-mobile nav ul li a:hover{
+.menu-mobile nav ul li a:hover {
     background-color: #188CD0;
     transition: .2s;
 }
@@ -426,9 +448,10 @@ footer .txt-footer{
     font-size: 40px;
 }
 
-    .menu-mobile.abrir-menu {
+.menu-mobile.abrir-menu {
         display: block;
     }
+
     .menu-mobile.abrir-menu ~ .overlay-menu{
     display: block; /* Exibe a sobreposição quando o menu está aberto */
 }
