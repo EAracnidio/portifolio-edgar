@@ -1,3 +1,9 @@
+:root {
+  --cor-primaria: #188CD0;
+  --cor-fundo: #000;
+  --cor-texto: #fff;
+  --fonte-principal: 'Poppins', sans-serif;
+}
 
 /*Estilo global*/
 html {
@@ -33,7 +39,13 @@ body{
     display: flex;
 }
 
-    .btn-contato button{
+.btn-contato {
+  display: flex;
+  gap: 550px; /* Espaço horizontal entre os botões */
+  flex-wrap: wrap; /* Permite que eles quebrem linha se necessário */
+  justify-content: left; /* Alinha os botões à esquerda */
+}
+.btn-contato button{
     padding: 10px 40px;
     font-size: 18px;
     font-weight: 600;
@@ -42,6 +54,31 @@ body{
     border-radius: 30px;
     cursor: pointer;
     }
+
+    /* Espaço abaixo do botão de CV */
+
+
+    .btn-baixar-cv button {
+  text-decoration: none; /* Remove o sublinhado */
+  background-color: #188CD0; /* Cor principal */
+  color: #000;               /* Texto preto */
+  border: none;
+  padding: 10px 30px;
+  border-radius: 30px;
+  font-weight: bold;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s ease;
+  margin-top: 20px;
+   margin-bottom: 20px;
+}
+
+/* Efeito ao passar o mouse */
+.btn-baixar-cv button:hover {
+  background-color: #0f6ca5; /* Tom mais escuro no hover */
+  box-shadow: 0 0 10px #188CD0;
+  transform: scale(1.05);
+}
 
 h2.titulo{
     font-size: 38px;
@@ -403,9 +440,13 @@ footer .txt-footer{
         display: none;
     }
 
-    .btn-contato{
-        display: none;
-    }
+    .btn-contato {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+  margin-top: 20px;
+}
 
 /*MENU MOBILE*/
 .menu-mobile .btn-fechar{
@@ -520,6 +561,13 @@ section.sobre{
     font-size: 34px;
     line-height: 35px;
     text-align: center;
+}
+
+.btn-baixar-cv {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+  text-decoration: none; /* Remove o sublinhado */
 }
 
 .btn-social{

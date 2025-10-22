@@ -7,8 +7,9 @@ btnMenu.addEventListener("click", ()=>{
     menu.classList.add("abrir-menu")
 })  
 
-menu.addEventListener("click", ()=>{
-    menu.classList.remove("abrir-menu")
+let btnFechar = document.querySelector(".btn-fechar")
+btnFechar.addEventListener("click", () => {
+  menu.classList.remove("abrir-menu")
 })
 
 overlay.addEventListener("click", ()=>{
