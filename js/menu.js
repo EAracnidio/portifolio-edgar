@@ -54,3 +54,69 @@ window.addEventListener('scroll', function() {
         header.classList.remove('scroll');
     }
 });
+
+// BOTÃO VOLTAR AO TOPO
+const btnTopo = document.getElementById('btnTopo');
+
+if (btnTopo) {
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 300) {
+            btnTopo.classList.add('visible');
+        } else {
+            btnTopo.classList.remove('visible');
+        }
+    });
+    
+    btnTopo.addEventListener('click', () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+}
+
+// ANIMAÇÃO DE DIGITAÇÃO - CORRIGIDA (texto branco + ponto azul)
+const elementoDestino = document.getElementById('tituloDigitacao');
+const textoCompleto = "DO CÓDIGO À COMUNIDADE: INOVAÇÃO QUE TRANSFORMA.";
+let i = 0;
+
+function digitarTexto() {
+    if (i < textoCompleto.length) {
+        let html = '';
+        for (let j = 0; j <= i; j++) {
+            const caractere = textoCompleto[j];
+            if (caractere === '.') {
+                html += `<span class="texto-azul">${caractere}</span>`;
+            } else {
+                html += `<span class="texto-branco">${caractere}</span>`;
+            }
+        }
+        elementoDestino.innerHTML = html + '<span class="cursor"></span>';
+        i++;
+        setTimeout(digitarTexto, 50);
+    } else {
+        // Remove o cursor no final
+        let htmlFinal = '';
+        for (let j = 0; j < textoCompleto.length; j++) {
+            const caractere = textoCompleto[j];
+            if (caractere === '.') {
+                htmlFinal += `<span class="texto-azul">${caractere}</span>`;
+            } else {
+                htmlFinal += `<span class="texto-branco">${caractere}</span>`;
+            }
+        }
+        elementoDestino.innerHTML = htmlFinal;
+    }
+}
+
+// Inicia a animação apenas se o elemento existir
+if (elementoDestino) {
+    elementoDestino.innerHTML = ''; // Limpa qualquer conteúdo existente
+    digitarTexto();
+}
+
+// COPYRIGHT AUTOMÁTICO - ANO ATUAL
+const anoAtual = document.getElementById('anoAtual');
+if (anoAtual) {
+    anoAtual.textContent = new Date().getFullYear();
+}

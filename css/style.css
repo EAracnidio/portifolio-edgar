@@ -230,6 +230,42 @@ section.topo-do-site .flex{
     margin: 40px 0;
 }
 
+/* ANIMAÇÃO DE DIGITAÇÃO */
+.txt-topo-site h1 {
+    font-size: 50px;
+    color: #fff;
+    line-height: 40px;
+    min-height: 120px; /* Evita que o layout pule */
+}
+
+/* Cores específicas para o título digitado */
+.txt-topo-site h1 .texto-branco {
+    color: #ffffff !important;
+}
+
+.txt-topo-site h1 .texto-azul {
+    color: #188CD0 !important;
+}
+
+/* Garante que o h1 principal mantenha a cor padrão */
+.txt-topo-site h1 {
+    color: #ffffff;
+}
+
+@keyframes piscar {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+/* Responsivo */
+@media screen and (max-width: 999px) {
+    .txt-topo-site h1 {
+        font-size: 32px;
+        line-height: 35px;
+        min-height: 100px;
+    }
+}
+
 .topo-do-site .img-topo-site img{
     position:relative;
     width: 100%;
@@ -461,6 +497,57 @@ footer .txt-footer{
     margin-top: 20px;
     color: #fff;
     font-size: 16px;
+}
+
+/* BOTÃO VOLTAR AO TOPO */
+.btn-topo {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    background-color: #188CD0;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    z-index: 999;
+    border: none;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.btn-topo.visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+.btn-topo:hover {
+    background-color: #0f6ca5;
+    transform: scale(1.1);
+    box-shadow: 0 0 15px #188CD0;
+}
+
+.btn-topo i {
+    color: #fff;
+    font-size: 24px;
+}
+
+/* Responsivo */
+@media screen and (max-width: 999px) {
+    .btn-topo {
+        bottom: 20px;
+        right: 20px;
+        width: 45px;
+        height: 45px;
+    }
+    
+    .btn-topo i {
+        font-size: 20px;
+    }
 }
 
 /*RESPONSIVO*/
