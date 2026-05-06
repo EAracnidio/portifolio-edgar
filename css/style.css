@@ -41,10 +41,11 @@ body{
 
 .btn-contato {
   display: flex;
-  gap: 550px; /* Espaço horizontal entre os botões */
-  flex-wrap: wrap; /* Permite que eles quebrem linha se necessário */
-  justify-content: left; /* Alinha os botões à esquerda */
+  gap: 20px; /* ✅ Espaço normal entre botões */
+  flex-wrap: wrap;
+  align-items: center;
 }
+
 .btn-contato button{
     padding: 10px 40px;
     font-size: 18px;
@@ -92,6 +93,36 @@ h2.titulo span{
 }
 
 /*Estilo do cabecalho*/
+/* ESTILO DO CABEÇALHO - VERSÃO COM FIXO */
+header {
+    padding: 40px 4%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #000;
+    z-index: 1000;
+    transition: all 0.3s ease;
+}
+
+/* Ajuste para o conteúdo não ficar escondido atrás do menu */
+main {
+    margin-top: 160px; /* Altura aproximada do header */
+}
+
+/* Versão compacta quando rolar a página (efeito opcional) */
+header.scroll {
+    padding: 15px 4%;
+    background-color: rgba(0, 0, 0, 0.95);
+    backdrop-filter: blur(10px);
+}
+
+/* Scroll padding para compensar o menu fixo */
+html {
+    scroll-padding-top: 120px; /* Ajuste conforme altura do seu header */
+    scroll-behavior: smooth;
+}
+
 header{
     padding: 40px 4%;
 }
@@ -107,6 +138,12 @@ header .interface{
     display: flex;
     align-items: center;
     justify-content: space-between;
+}
+
+header nav.menu-desktop {
+    flex: 1;
+    display: flex;
+    justify-content: center;
 }
 
 header a{
@@ -245,6 +282,10 @@ section.especialidades .flex{
 }
 
 /*ESTILO DO SOBRE*/
+.img-sobre img{
+    width: 110%;
+}
+
 section.sobre{
     padding: 80px 4%;
 }
@@ -436,9 +477,18 @@ footer .txt-footer{
 }
 
  /*CABEÇALHO*/
-    .menu-desktop{
-        display: none;
-    }
+  .menu-desktop {
+    display: none !important;
+}
+
+html {
+    scroll-padding-top: 90px; /* Menor para mobile */
+}
+
+/* ESCONDE O BOTÃO CONTACTO DO HEADER EM MOBILE */
+header .btn-contato {
+    display: none !important;
+}
 
     .btn-contato {
   display: flex;
@@ -524,6 +574,10 @@ section.topo-do-site{
 
 .topo-do-site .img-topo-site img{
     width: 100%;
+}
+
+.txt-topo-site {
+    text-align: center;
 }
 
 /*ESPECIALIDADES*/

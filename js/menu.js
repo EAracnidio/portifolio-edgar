@@ -1,17 +1,56 @@
+document.addEventListener("DOMContentLoaded", () => {
+  const btnMenu = document.getElementById("btn-menu");
+  const menu = document.getElementById("menu-mobile");
+  const overlay = document.getElementById("overlay-menu");
+  const btnFechar = document.querySelector(".btn-fechar");
+  const menuLinks = document.querySelectorAll("#menu-mobile nav ul li a");
 
-let btnMenu = document.getElementById("btn-menu")
-let menu = document.getElementById("menu-mobile")
-let overlay = document.getElementById("overlay-menu")
+  if (!btnMenu || !menu || !overlay) return;
 
-btnMenu.addEventListener("click", ()=>{
-    menu.classList.add("abrir-menu")
-})  
+  const abrirMenu = () => {
+    menu.classList.add("abrir-menu");
+    overlay.classList.add("ativo"); // ✅ Mostra overlay
+    document.body.style.overflow = "hidden"; // ✅ Impede scroll do fundo
+  };
+  
+  const fecharMenu = () => {
+    menu.classList.remove("abrir-menu");
+    overlay.classList.remove("ativo"); // ✅ Esconde overlay
+    document.body.style.overflow = ""; // ✅ Restaura scroll
+  };
 
-let btnFechar = document.querySelector(".btn-fechar")
-btnFechar.addEventListener("click", () => {
-  menu.classList.remove("abrir-menu")
-})
+  btnMenu.addEventListener("click", abrirMenu);
 
-overlay.addEventListener("click", ()=>{
-    menu.classList.remove("abrir-menu")
-})
+  if (btnFechar) {
+    btnFechar.addEventListener("click", fecharMenu);
+  }
+
+  overlay.addEventListener("click", fecharMenu);
+
+  // Fechar menu ao clicar em qualquer link
+  menuLinks.forEach(link => {
+    link.addEventListener("click", (e) => {
+      fecharMenu();
+      
+      setTimeout(() => {
+        const targetId = link.getAttribute("href");
+        if (targetId && targetId !== "#") {
+          const targetElement = document.querySelector(targetId);
+          if (targetElement) {
+            targetElement.scrollIntoView({ behavior: "smooth" });
+          }
+        }
+      }, 100);
+    });
+  });
+});
+
+// Menu fixo com efeito de scroll
+window.addEventListener('scroll', function() {
+    const header = document.querySelector('header');
+    if (window.scrollY > 50) {
+        header.classList.add('scroll');
+    } else {
+        header.classList.remove('scroll');
+    }
+});
