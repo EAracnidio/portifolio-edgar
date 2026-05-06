@@ -67,7 +67,7 @@
     </header>
 
     <main>
-        <section class="topo-do-site" id="topo">
+        <section class="topo-do-site" id="topo" data-aos="fade-up" data-aos-duration="1000">
             <div class="interface">
                 <div class="flex">
                     <div class="txt-topo-site">
@@ -93,7 +93,7 @@
             </div>
         </section>
 
-        <section class="especialidades" id="especialidades">
+        <section class="especialidades" id="especialidades" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
             <div class="interface">
                 <h2 class="titulo">   MINHAS <span>ESPECIALIDADES.</span></h2>
                 <div class="flex">
@@ -116,7 +116,7 @@
             </div>
         </section>
 
-        <section class="sobre" id="sobre">
+        <section class="sobre" id="sobre" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="400">
             <div class="interface">
                 <div class="flex">
                     <div class="img-sobre">
@@ -144,7 +144,7 @@
 
         </section>
 
-        <section class="portfolio" id="portfolio">
+        <section class="portfolio" id="portfolio" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="600">
             <div class="interface">
                 <h2 class="titulo">MEU <span>PORTFÓLIO.</span></h2>
                 <div class="flex">
@@ -161,14 +161,25 @@
             </div>
         </section>
 
-        <section class="formulario" id="Contacto">
+        <<section class="formulario" id="Contacto" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="800">
             <div class="interface">
                 <h2 class="titulo">VAMOS <span>CONVERSAR.</span></h2>
-                <form action="https://formsubmit.co/edgarmapanzene@gmail.com" method="POST">
-                    <input type="text" name="nome" placeholder="Nome Completo" required>
-                    <input type="email" name="email" placeholder="Email" required>
-                    <textarea name="mensagem" id="" cols="30" rows="10" placeholder="Escreva Sua Mensagem" required></textarea>
-                    <div class="btn-enviar"><input type="submit" value="Enviar"></div>
+                <form id="formContato" action="https://formsubmit.co/edgarmapanzene@gmail.com" method="POST">
+                    <input type="text" name="nome" id="nome" placeholder="Nome Completo" required>
+                    <div class="erro-mensagem" id="erroNome"></div>
+                    
+                    <input type="email" name="email" id="email" placeholder="Email" required>
+                    <div class="erro-mensagem" id="erroEmail"></div>
+                    
+                    <textarea name="mensagem" id="mensagem" cols="30" rows="10" placeholder="Escreva Sua Mensagem" required></textarea>
+                    <div class="erro-mensagem" id="erroMensagem"></div>
+                    
+                    <div class="btn-enviar">
+                        <input type="submit" id="btnSubmit" value="Enviar">
+                    </div>
+                    
+                    <!-- Mensagem de feedback (sucesso/erro) -->
+                    <div id="feedbackMensagem" class="feedback"></div>
                 </form>
             </div>
 
@@ -204,7 +215,13 @@
     <!-- AOS JS para ativar as animações -->
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script>
-  AOS.init(); // Inicializa as animações
+  AOS.init({
+    duration: 1000,      // Duração da animação (ms)
+    once: true,          // Anima apenas uma vez (não repete ao rolar para cima)
+    offset: 100,         // Distância do fundo para iniciar animação (px)
+    easing: 'ease-in-out', // Tipo de aceleração
+    disable: 'mobile'    // Desabilita em mobile para melhor performance (opcional)
+  });
 </script>
 
 <!-- Botão Voltar ao Topo -->

@@ -459,6 +459,60 @@ form .btn-enviar input{
     cursor: pointer;
 }
 
+/* ESTILOS PARA VALIDAÇÃO DO FORMULÁRIO */
+.erro-mensagem {
+    color: #ff4444;
+    font-size: 12px;
+    margin-top: -5px;
+    margin-bottom: 10px;
+    display: none;
+}
+
+.erro-mensagem.visible {
+    display: block;
+}
+
+/* Estilo para campos com erro */
+input.erro, textarea.erro {
+    border: 2px solid #ff4444;
+    background-color: #ff444420;
+}
+
+/* Estilo para campos válidos */
+input.valido, textarea.valido {
+    border: 2px solid #00ff88;
+}
+
+/* Mensagem de feedback (sucesso/erro) */
+.feedback {
+    margin-top: 20px;
+    padding: 15px;
+    border-radius: 10px;
+    text-align: center;
+    font-weight: 500;
+    display: none;
+}
+
+.feedback.sucesso {
+    display: block;
+    background-color: #00ff8820;
+    color: #00ff88;
+    border: 1px solid #00ff88;
+}
+
+.feedback.erro {
+    display: block;
+    background-color: #ff444420;
+    color: #ff4444;
+    border: 1px solid #ff4444;
+}
+
+/* Desabilitar botão durante envio */
+.btn-enviar input:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
 /*ESTILO DO RODAPE*/
 footer{
     padding: 60px 4%;
@@ -534,6 +588,25 @@ footer .txt-footer{
 .btn-topo i {
     color: #fff;
     font-size: 24px;
+}
+
+/* Garantir que o AOS funcione suavemente */
+[data-aos] {
+    opacity: 0;
+    transition-property: opacity, transform;
+}
+
+[data-aos].aos-animate {
+    opacity: 1;
+}
+
+/* Opcional: desabilitar animações em dispositivos que preferem menos movimento */
+@media (prefers-reduced-motion: reduce) {
+    [data-aos] {
+        opacity: 1 !important;
+        transform: none !important;
+        transition: none !important;
+    }
 }
 
 /* Responsivo */
